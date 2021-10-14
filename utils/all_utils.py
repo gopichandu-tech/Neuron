@@ -7,6 +7,7 @@ from matplotlib.colors import ListedColormap
 plt.style.use("fivethirtyeight") # THIS IS STYLE OF GRAPHS
 
 import os
+import logging
 
 def prepare_data(df):
 
@@ -16,6 +17,8 @@ def prepare_data(df):
   Returns:
       [type]: [description]
   """
+
+  logging.info("preparing data for segegrating the information")
 
 
 
@@ -32,6 +35,8 @@ def save_model(model, filename):
     
     hello how are you and i am fine and it is goos to see you my friend tab9 is good key to use see i a you kite
   """
+
+  logging.info(f"The file is save in the path {filename}")
   model_dir = "models"
   os.makedirs(model_dir, exist_ok=True) # ONLY CREATE IF MODEL_DIR DOESN"T EXISTS
   filePath = os.path.join(model_dir, filename) # model/filename
@@ -59,8 +64,8 @@ def save_plot(df, file_name, model):
 
     xx1, xx2 = np.meshgrid(np.arange(x1_min, x1_max, resolution), 
                            np.arange(x2_min, x2_max, resolution))
-    print(xx1)
-    print(xx1.ravel())
+    #logging.info(xx1)
+    #logging.info(xx1.ravel())
     Z = classfier.predict(np.array([xx1.ravel(), xx2.ravel()]).T)
     Z = Z.reshape(xx1.shape)
     plt.contourf(xx1, xx2, Z, alpha=0.2, cmap=cmap)
@@ -80,3 +85,4 @@ def save_plot(df, file_name, model):
   os.makedirs(plot_dir, exist_ok=True) # ONLY CREATE IF MODEL_DIR DOESN"T EXISTS
   plotPath = os.path.join(plot_dir, file_name) # model/filename
   plt.savefig(plotPath)
+  logging.info(f"The file is save in the path {plotPath}")
