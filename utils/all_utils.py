@@ -9,6 +9,16 @@ plt.style.use("fivethirtyeight") # THIS IS STYLE OF GRAPHS
 import os
 
 def prepare_data(df):
+
+
+  """["hello my name is gopichandu and i am from 5btme it is good to see you all and i am happy to be thepart of ineuron intellengence "]
+
+  Returns:
+      [type]: [description]
+  """
+
+
+
   X = df.drop("y", axis=1)
 
   y = df["y"]
@@ -16,6 +26,12 @@ def prepare_data(df):
   return X, y
 
 def save_model(model, filename):
+
+  """
+  
+    
+    hello how are you and i am fine and it is goos to see you my friend tab9 is good key to use see i a you kite
+  """
   model_dir = "models"
   os.makedirs(model_dir, exist_ok=True) # ONLY CREATE IF MODEL_DIR DOESN"T EXISTS
   filePath = os.path.join(model_dir, filename) # model/filename
